@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NextStep turns goals into simple, actionable plans.">
+  <title>NextStep — Turn goals into action</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#"><span class="logo">N</span>NextStep</a>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#planner">Planner</a>
+      <button class="ghost" id="viewSaved">My plan</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">ONE GOAL. ONE CLEAR NEXT STEP.</div>
+      <h1>Stop wondering.<br><span>Start moving.</span></h1>
+      <p>Tell NextStep what you want to accomplish. We'll turn the big goal into a clear, manageable plan you can start today.</p>
+      <div class="hero-actions">
+        <a class="primary" href="#planner">Build my free plan →</a>
+        <a class="secondary" href="#how">See how it works</a>
+      </div>
+      <div class="trust">
+        <span>✓ No account needed</span><span>✓ Free to use</span><span>✓ Saved on your device</span>
+      </div>
+    </section>
+
+    <section class="problem">
+      <div>
+        <div class="eyebrow">THE PROBLEM</div>
+        <h2>Big goals feel overwhelming.</h2>
+      </div>
+      <p>People often know where they want to go, but not the first few steps to get there. NextStep removes the blank-page problem by turning an idea into small actions.</p>
+    </section>
+
+    <section id="how" class="how">
+      <div class="section-head">
+        <div class="eyebrow">HOW IT WORKS</div>
+        <h2>From stuck to started in three steps.</h2>
+      </div>
+      <div class="cards">
+        <article><span>01</span><h3>Tell us your goal</h3><p>Describe what you want to achieve and choose the area of life it belongs to.</p></article>
+        <article><span>02</span><h3>Set your situation</h3><p>Tell us your timeline, experience level, and how much time you can commit.</p></article>
+        <article><span>03</span><h3>Get your roadmap</h3><p>Receive an actionable starter plan, then check off steps as you complete them.</p></article>
+      </div>
+    </section>
+
+    <section id="planner" class="planner-wrap">
+      <div class="planner-copy">
+        <div class="eyebrow">YOUR NEXT STEP</div>
+        <h2>What do you want to accomplish?</h2>
+        <p>You don't need the perfect wording. Start with what you know.</p>
+        <div class="examples">
+          <button data-goal="Get my first part-time job" data-cat="career">Get my first job</button>
+          <button data-goal="Start a small online business" data-cat="business">Start a business</button>
+          <button data-goal="Learn how to code websites" data-cat="learning">Learn a skill</button>
+          <button data-goal="Improve my grades this semester" data-cat="school">Improve my grades</button>
+        </div>
+      </div>
+
+      <form id="goalForm" class="planner-card">
+        <label for="goal">My goal</label>
+        <textarea id="goal" maxlength="180" required placeholder="Example: I want to learn web design and build my first website"></textarea>
+        <div class="grid2">
+          <div>
+            <label for="category">Area</label>
+            <select id="category">
+              <option value="general">General</option>
+              <option value="career">Career / Job</option>
+              <option value="business">Business</option>
+              <option value="learning">Learning a skill</option>
+              <option value="school">School</option>
+              <option value="project">Personal project</option>
+            </select>
+          </div>
+          <div>
+            <label for="level">Experience</label>
+            <select id="level">
+              <option value="beginner">I'm starting from zero</option>
+              <option value="some">I know a little</option>
+              <option value="experienced">I have experience</option>
+            </select>
+          </div>
+          <div>
+            <label for="timeline">Target timeline</label>
+            <select id="timeline">
+              <option value="week">This week</option>
+              <option value="month" selected>This month</option>
+              <option value="3months">Next 3 months</option>
+              <option value="long">Long term</option>
+            </select>
+          </div>
+          <div>
+            <label for="time">Time available</label>
+            <select id="time">
+              <option value="15">15 min/day</option>
+              <option value="30" selected>30 min/day</option>
+              <option value="60">1 hour/day</option>
+              <option value="120">2+ hours/day</option>
+            </select>
+          </div>
+        </div>
+        <button class="primary full" type="submit">Create my roadmap →</button>
+        <p class="fine">NextStep gives general planning guidance. For important financial, medical, legal, or safety decisions, talk with a qualified professional or trusted adult.</p>
+      </form>
+    </section>
+
+    <section id="result" class="result hidden">
+      <div class="result-top">
+        <div>
+          <div class="eyebrow">YOUR ROADMAP</div>
+          <h2 id="resultGoal"></h2>
+          <p id="resultMeta"></p>
+        </div>
+        <button id="resetBtn" class="secondary">New goal</button>
+      </div>
+      <div class="progress-box">
+        <div class="progress-label"><span>Progress</span><strong id="progressText">0%</strong></div>
+        <div class="bar"><div id="progressBar"></div></div>
+      </div>
+      <div id="steps" class="steps"></div>
+      <div class="today">
+        <span>START HERE TODAY</span>
+        <h3 id="todayAction"></h3>
+        <p>Small progress counts. Finish this one action before worrying about everything else.</p>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="eyebrow">THE IDEA</div>
+      <h2>Everyone deserves a clear next step.</h2>
+      <p>NextStep is designed to make useful planning simple and accessible, wherever you are.</p>
+      <a class="primary" href="#planner">Make a plan</a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#"><span class="logo">N</span>NextStep</a>
+    <p>Built to turn intention into action.</p>
+    <p>© <span id="year"></span> NextStep</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
